@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractSignEditScreen;
 import net.minecraft.client.gui.screens.inventory.BookEditScreen;
 import net.minecraft.client.gui.screens.inventory.SignEditScreen;
+import net.minecraft.client.gui.screens.inventory.HangingSignEditScreen;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.FormattedCharSequence;
@@ -29,7 +30,7 @@ class MixinScreen {
     }
 }
 
-@Mixin({BookEditScreen.class, SignEditScreen.class})
+@Mixin({BookEditScreen.class, AbstractSignEditScreen.class})
 class MixinEditScreen {
     @Inject(method = "init", at = @At("TAIL"))
     private void onInit(CallbackInfo info) {
